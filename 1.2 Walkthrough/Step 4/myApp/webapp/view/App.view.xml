@@ -1,0 +1,11 @@
+<!--The root node of the XML structure is the view.
+Here, we reference the default namespace sap.m where the majority of our UI assets are located.
+We define an additional sap.ui.core.mvc namespace with alias mvc,
+where the SAPUI5 views and all other Model-View-Controller (MVC) assets are located.-->
+<!--Inside the view tag, we add the declarative definition of our text control with the same properties as in the previous step.
+The XML tags are mapped to controls and the attributes are mapped to the properties of the control.-->
+<mvc:View
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc">
+	<Text text="Hello World"/>
+</mvc:View>
