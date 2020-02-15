@@ -1,0 +1,62 @@
+<!--The presentation logic is now defined declaratively in an XML view.
+UI controls are located in libraries that we define in the View tag. In our case, we use the bread-and-butter controls from sap.m.
+The new controls in the view are an App and a Page. They define a Web app with a header bar and a title.
+The button from the previous examples now also defines a type and a class attribute.
+This improves the layout of our button and makes it stand out more.
+We outsource the controller logic to an app controller. The .onPress event now references a function in the controller.-->
+<!--We also define the two new libraries in the View tag and give them a meaningful prefix.
+To the App control, we will assign an ID so that the controller can easily identify it.
+The button now receives an icon and triggers our navigation to page two. Therefore, we change the text to "Go!".
+Copy the second Page control with all its content into the view. It is defined with the intro ID and a new title.
+It contains several new UI controls like a BlockLayout, an Icon, and a Panel.
+We use essential SAPUI5 concepts like navigation, data binding, and user interaction to define a nice playground on the second page of our app.-->
+<mvc:View controllerName="Quickstart.App" displayBlock="true" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core" xmlns:tnt="sap.tnt">
+	<!--UI controls are located in libraries that we define in the View tag.
+							We outsource the controller logic to an app controller.
+							We also define the two new libraries in the View tag and give them a meaningful prefix.-->
+	<!--The new controls in the view are an App and a Page.-->
+	<!--They define a Web app with a header bar and a title.-->
+	<App id="app">
+		<!--To the App control, we will assign an ID so that the controller can easily identify it.-->
+		<Page title="My App">
+			<!--The button from the previous examples now also defines a type and a class attribute.
+			The .onPress event now references a function in the "Quickstart.App" controller.-->
+			<!--The button now receives an icon and triggers our navigation to page two. Therefore, we change the text to "Go!".-->
+			<Button press=".onPress" type="Emphasized" class="sapUiSmallMargin" icon="sap-icon://sap-ui5" text="Go!"/>
+		</Page>
+		<!--second Page control-->
+		<!--It is defined with the intro ID and a new title.-->
+		<Page id="intro" title="Create Enterprise-Ready Web Apps with Ease">
+			<l:BlockLayout background="Light">
+				<l:BlockLayoutRow>
+					<l:BlockLayoutCell>
+						<core:Icon color="#1873B4" src="sap-icon://sap-ui5" size="20rem" class="sapUiMediumMarginBottom" width="100%"/>
+						<Title level="H1" titleStyle="H1" text="This is UI5!" width="100%" textAlign="Center"/>
+					</l:BlockLayoutCell>
+				</l:BlockLayoutRow>
+				<l:BlockLayoutRow>
+					<l:BlockLayoutCell>
+						<!--with items="{/features}", the prpoperty features is fetched from the unnamed view model-->
+						<FlexBox items="{/features}" justifyContent="Center" wrap="Wrap" class="sapUiSmallMarginBottom">
+							<!--with text="{}", the InfoLabel tag is repeated as many times as we have entries in our model-->
+							<tnt:InfoLabel text="{}" class="sapUiSmallMarginTop sapUiSmallMarginEnd"/>
+						</FlexBox>
+					</l:BlockLayoutCell>
+				</l:BlockLayoutRow>
+				<l:BlockLayoutRow>
+					<l:BlockLayoutCell>
+						<Panel headerText="Are you ready?" expandable="true">
+							<!--with change=".onChange", when the change event is trigerred, the onChange function is called in the controller-->
+							<Switch change=".onChange" customTextOn="yes" customTextOff="no"/>
+							<l:HorizontalLayout id="ready" visible="false" class="sapUiSmallMargin">
+								<Text text="Ok, let's get you started!" class="sapUiTinyMarginEnd"/>
+								<Link text="Learn more" href="https://openui5.hana.ondemand.com/"/>
+							</l:HorizontalLayout>
+						</Panel>
+					</l:BlockLayoutCell>
+				</l:BlockLayoutRow>
+			</l:BlockLayout>
+		</Page>
+	</App>
+</mvc:View>

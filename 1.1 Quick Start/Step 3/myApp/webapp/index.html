@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Quickstart Tutorial</title>
+		<!--With the script tag, we load and initialize SAPUI5 with typical bootstrap parameters.
+		We define, for example, a theme, control libraries, as well as performance and compatibility flags.
+			* src = a source to load SAPUI5 from
+			* resourceroots = defines the namespace for all resources of the app
+			* onInit = index module that we load, holding the application logic (the index.js file)
+			* theme = default ui theme
+			* libs = libraries-->
+		<script id="sap-ui-bootstrap"
+			src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+			data-sap-ui-theme="sap_belize"
+			data-sap-ui-libs="sap.m, sap.ui.layout, sap.tnt"
+			data-sap-ui-resourceroots='{"Quickstart": "./"}'
+			data-sap-ui-onInit="module:Quickstart/index"
+			data-sap-ui-compatVersion="edge"
+			data-sap-ui-async="true">
+		</script>
+	</head>
+	<!--The body tag is defined with the sapUiBody class and the content ID.
+	This is where we will add the content of the app in the next steps.-->
+	<body class="sapUiBody" id="content"></body>
+</html>
