@@ -1,0 +1,28 @@
+<!--The presentation logic is now defined declaratively in an XML view.
+UI controls are located in libraries that we define in the View tag. In our case, we use the bread-and-butter controls from sap.m.
+The new controls in the view are an App and a Page. They define a Web app with a header bar and a title.
+The button from the previous examples now also defines a type and a class attribute.
+This improves the layout of our button and makes it stand out more.
+We outsource the controller logic to an app controller. The .onPress event now references a function in the controller.-->
+<mvc:View
+	controllerName="Quickstart.App"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"><!--UI controls are located in libraries that we define in the View tag.
+								We outsource the controller logic to an app controller.-->
+	<!--The new controls in the view are an App and a Page.-->
+	<!--They define a Web app with a header bar and a title.-->
+	<App>
+		<Page title="My App">
+			<!--The button from the previous examples now also defines a type and a class attribute.
+			The .onPress event now references a function in the "Quickstart.App" controller.-->
+			<Button
+				text="Steady..."
+				press=".onPress"
+				type="Emphasized"
+				class="sapUiSmallMargin"/>
+		</Page>
+	</App>
+</mvc:View>
+
+
