@@ -1,0 +1,14 @@
+<!--We add a new XML file to declaratively define our dialog in a fragment.
+The fragment assets are located in the core namespace, so we add an xml namespace for it inside the FragmentDefinition tag.
+The syntax is similar to a view, but since fragments do not have a controller this attribute is missing.
+Also, the fragment does not have any footprint in the DOM tree of the app,
+and there is no control instance of the fragment itself (only the contained controls). It is simply a container for a set of reuse controls.
+We also add an id for our Dialog to be able to access the dialog from our HelloPanel controller.-->
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core" >
+   <Dialog
+      id="helloDialog"
+      title="Hello {/recipient/name}">
+   </Dialog>
+</core:FragmentDefinition>
