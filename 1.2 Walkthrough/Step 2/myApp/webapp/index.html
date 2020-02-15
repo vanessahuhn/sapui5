@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>SAPUI5 Walkthrough</title>
+	<!--*src	
+				The src attribute of the <script> tag tells the browser where to find the SAPUI5 core library – it initializes the SAPUI5 runtime
+				and loads additional resources, such as the libraries specified in the data-sap-ui-libs attribute.
+		*data-sap-ui-theme
+				The SAPUI5 controls support different themes, we choose sap_belize as our default theme.
+		*data-sap-ui-libs
+				We specify the required UI library sap.m containing the UI controls we need for this tutorial.
+		*data-sap-ui-compatVersion
+				To make use of the most recent functionality of SAPUI5 we define the compatibility version as edge.
+		*data-sap-ui-async
+				We configure the process of “bootstrapping” to run asynchronously.
+				This means that the SAPUI5 resources can be loaded simultaneously in the background for performance reasons.
+		*data-sap-ui-onInit
+				We define the module to be loaded initially in a declarative way.
+				With this, we avoid directly executable JavaScript code in the HTML file.
+				This makes your app more secure. We will create the script that this references to further down in this step.
+		*data-sap-ui-resourceroots
+				We tell SAPUI5 core that resources in the sap.ui.demo.walkthrough namespace are located in the same folder as index.html.
+				This is, for example, necessary for apps that run in the SAP Fiori launchpad.-->
+		<script
+		id="sap-ui-bootstrap"
+		src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"
+		data-sap-ui-theme="sap_belize"
+		data-sap-ui-libs="sap.m"
+		data-sap-ui-compatVersion="edge"
+		data-sap-ui-async="true"
+		data-sap-ui-onInit="module:sap/ui/demo/walkthrough/index"
+		data-sap-ui-resourceroots='{
+			"sap.ui.demo.walkthrough": "./"
+		}'>
+
+	</script>
+</head>
+<body>
+	<div>Hello World</div>
+</body>
+</html>
