@@ -1,0 +1,41 @@
+<!--The root node of the XML structure is the view.
+Here, we reference the default namespace sap.m where the majority of our UI assets are located.
+We define an additional sap.ui.core.mvc namespace with alias mvc,
+where the SAPUI5 views and all other Model-View-Controller (MVC) assets are located.-->
+
+<!--Inside the view tag, we add the declarative definition of our text control with the same properties as in the previous step.
+The XML tags are mapped to controls and the attributes are mapped to the properties of the control.-->
+
+<!--We add a reference to the controller, and replace the text control with a button with text “Say Hello”.
+The button triggers the .onShowHello event handler function when being pressed.
+We also have to specify the name of the controller that is connected to the view
+and holds the .onShowHello function by setting the controllerName attribute of the view.
+A view does not necessarily need an explicitly assigned controller.
+You do not have to create a controller if the view is just displaying information and no additional functionality is required.
+If a controller is specified, it is instantiated after the view is loaded.-->
+
+<!--We add an sap.m.Input control to the view. With this, the user can enter a recipient for the greetings.
+We bind its value to a SAPUI5 model by using the declarative binding syntax for XML views:
+The curly brackets {…} indicate that data is taken from the value of the recipient's object name property. This is called "data binding".
+/recipient/name declares the path in the model.-->
+
+<mvc:View controllerName="sap.ui.demo.walkthrough.controller.App" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc">
+	<!--<Text text="Hello World"/>-->
+<!--	<Button
+		text="Say Hello"
+		press=".onShowHello"/>-->
+		<!--In the XML view, we use data binding to connect the button text to the showHelloButtonText property in the i18n model.
+		A resource bundle is a flat structure, therefore the preceding slash (/) can be omitted for the path.-->
+		<Button
+			text="{i18n>showHelloButtonText}"
+			press=".onShowHello"/>
+	<!--We add an sap.m.Input control to the view.
+		With this, the user can enter a recipient for the greetings.
+		The curly brackets {…} indicate that data is taken from the value of the recipient's object name property.
+		/recipient/name declares the path in the model.-->
+	<Input
+		value="{/recipient/name}"
+		description="Hello {/recipient/name}"
+		valueLiveUpdate="true"
+		width="60%"/>
+</mvc:View>
